@@ -1,0 +1,59 @@
+import java.io.*;
+import  java.util.*;
+import java.lang.Math;
+// Read only region start
+class UserMainCode
+{
+
+	public int findStringCode(String input1){
+		// Read only region end
+		// Write code here...
+        String s=input1;
+        s=s.toUpperCase();
+        int n=s.length();
+        char a[]=new char[n];
+        int c=0,m=0,r,t,sum=0,p,sum1=0;
+        System.out.println(n);
+        for(int i=0;i<n;i++)
+        {
+            if(s.charAt(i)!=' ' && (i!=(n-1)))
+            {
+                c++;
+            }
+            else 
+            {
+                
+                if(i!=(n-1))
+                    c=c-1;
+                //System.out.println(c);
+                sum=0;
+                for(int j=m;j<=c;j++)
+                {
+                    if(j!=c)
+                    {
+                        r=(int)s.charAt(j);
+                        t=(int)s.charAt(c);
+                        sum=sum+Math.abs(r-t);
+                        c--;
+                        
+                    }
+                    else
+                    {
+                        r=(int)s.charAt(j);
+                        sum=sum+r-64;
+                    }
+                    
+                }
+				if(sum>=0 &&sum<10)
+					sum1=sum1*10+sum;
+				else if(sum<100)
+                    sum1=sum1*100+sum;
+				else
+					sum1=sum1*1000+sum;
+                c=i+1;
+                m=i+1;
+			}
+		}
+		return sum1;
+	}
+}

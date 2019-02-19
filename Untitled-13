@@ -1,0 +1,46 @@
+import java.io.*;
+import  java.util.*;
+
+// Read only region start
+class UserMainCode
+{
+
+	public String identifyPossibleWords(String input1,String input2){
+		// Read only region end
+		// Write code here...
+		String s1=input1;
+		String s2=input2;
+		int n1=s1.length();
+		s1=s1.toUpperCase();
+		int n2=s2.length();
+		s2=s2.toUpperCase();
+		String s="";
+		String a[]=new String[100];
+		int i=0,j;
+		while(s2!=null)
+		{
+			j=0;
+			while(s2.charAt(i)!=':')
+			{
+				if(s1.charAt(j)=='_')
+				{
+					s=s+s2.charAt(i);
+					i++;
+					j++;
+				}
+				else if(s1.charAt(j)==s2.charAt(i))
+				{
+					s=s+s1.charAt(j);
+					i++;
+					j++;
+				}
+				else 
+				{
+					while(s2.charAt(i)!=':')
+						i++;
+					break;
+				}
+			}
+		}
+	}
+}
